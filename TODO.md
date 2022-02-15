@@ -15,3 +15,5 @@ DONE
 	- category and author information on each post
 	- a count of posts in each category
 	- posts with recent comments in the sidebar
+* Add the comments list to the single.php template
+* create and parse the "add comment" form

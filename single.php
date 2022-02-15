@@ -3,7 +3,7 @@ require('config.php');
 require_once('includes/functions.php');
 require('includes/header.php');
 
-//which post are we viewing?
+//which post are we viewing? sanitize the query string var
 //url: single.php?post_id=x
 if( isset( $_GET['post_id'] ) ){
 	//sanitize and validate
@@ -15,13 +15,16 @@ if( isset( $_GET['post_id'] ) ){
 }else{
 	$post_id = 0;
 }
+
+require('includes/parse-comment.php');
+
 ?> 
 <main class="content">
 		
 		<?php 
 		//"write it"
 		//get the published post, newest first
-		$query = 'SELECT p.*, u.username, u.profile_pic, u.user_id, cat.name
+		$query = 'SELECT p.*, u.username, u.profile_pic, u.user_id, cat.name, p.allow_comments
 							FROM posts AS p, users AS u, categories AS cat
 							WHERE p.user_id = u.user_id
 							AND cat.category_id = p.category_id
@@ -55,12 +58,18 @@ if( isset( $_GET['post_id'] ) ){
 		</div>
 		<?php 
 			} //end while
+
+			require('includes/comments.php');
+			
+			if( $allow_comments ){
+				require('includes/comment-form.php');
+			}
+
 		}else{
 			//empty state
 			echo '<h1 class="empty">No Posts Found</h1>';
 		} 
 		?>
-
 	</main>
 
 <?php 
