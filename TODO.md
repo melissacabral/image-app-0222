@@ -1,6 +1,8 @@
 TODO
 ====
-
+* build the search form
+* build the search results page
+* add pagination to "flip" through the results
 
 
 

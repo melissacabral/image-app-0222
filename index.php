@@ -55,9 +55,5 @@ require('includes/header.php');
 <?php 
 require('includes/sidebar.php');
 ?>
-<script type="text/javascript">
-	let whatever = '<?php echo $name ?>';
-	console.log(whatever);
-</script>
 <?php
 require('includes/footer.php'); ?>
