@@ -8,7 +8,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body class="<?php echo $page; ?>">
+<body>
 <div class="site">
 	<header class="header">
 		<h1><a href="index.php">GramOG</a></h1>
@@ -20,5 +20,10 @@
 
 				<input type="submit" value="Search">
 			</form>
+
+			<ul class="menu">
+				<li><a href="register.php">Sign Up</a></li>
+				<li><a href="login.php">Log In</a></li>
+			</ul>
 		</nav>
 	</header>

@@ -1,9 +1,8 @@
 TODO
 ====
-* build the search form
-* build the search results page
-* add pagination to "flip" through the results
 
+* Add Login and parse
+* Add login aurthentication to certain features (commenting, new post etc)
 
 
 DONE
@@ -19,3 +18,8 @@ DONE
 	- posts with recent comments in the sidebar
 * Add the comments list to the single.php template
 * create and parse the "add comment" form
+* build the search form
+* build the search results page
+* add pagination to "flip" through the results
+* Add Register form and parse new user accounts
+* set up default avatar
