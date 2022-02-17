@@ -188,9 +188,10 @@ function make_letter_avatar($string, $size){
     ///imagestring($avatar, $font, 10, 10, $string, $avatar_text_color);
     
     $font = 'fonts/font.ttf';
-    $x = ($size/2) - 14;
-    $y = $size/2 + 15;
-    imagettftext($avatar, 30, 0, $x, $y, $avatar_text_color, $font, $string);
+    $font_size = $size/2;
+    $x = ($size/2) - ($size/5);
+    $y = $size/2 + ($size/4);
+    imagettftext($avatar, $font_size, 0, $x, $y, $avatar_text_color, $font, $string);
 
 
     imagepng($avatar, $imageFilePath);
