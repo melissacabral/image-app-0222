@@ -1,8 +1,7 @@
 TODO
 ====
-
-* Add Login and parse
-* Add login aurthentication to certain features (commenting, new post etc)
+* fix the logout so the access_token is removed from the DB
+* remove the nav bar from the login and register form
 
 
 DONE
@@ -23,3 +22,6 @@ DONE
 * add pagination to "flip" through the results
 * Add Register form and parse new user accounts
 * set up default avatar
+* Add Login and parse
+* Add login authentication to certain features (commenting, new post etc)
+* build logout

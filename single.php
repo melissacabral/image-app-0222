@@ -61,7 +61,7 @@ require('includes/parse-comment.php');
 
 			require('includes/comments.php');
 			
-			if( $allow_comments ){
+			if( $allow_comments AND $logged_in_user ){
 				require('includes/comment-form.php');
 			}
 
