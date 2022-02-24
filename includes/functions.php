@@ -300,4 +300,68 @@ function check_login(){
     }
 }
 
+/**
+ * Display any size image from it's identifying string
+ * @param  string $image unique string from the image file name
+ * @param  string $size  small, medium (default) or large
+ * @param  string $alt   alt text for the img tag
+ * @return mixed        html output
+ */
+function show_post_image( $image, $size = 'medium', $alt ='' ){
+    $url = 'uploads/' . $image . '_' . $size . '.jpg';   
+    echo "<img src='$url' alt='$alt'>";
+}
+
+/**
+ * Show a <select> element containing all categories
+ * @return mixed html
+ */
+function show_category_dropdown( $default = 0 ){
+    global $DB;
+    $result = $DB->prepare('SELECT * FROM categories ORDER BY name ASC');
+    $result->execute();
+    if($result->rowCount() > 0){
+    ?>
+    <select name="category_id">
+        <?php
+        while( $row = $result->fetch() ){ 
+            extract($row);
+            if( $category_id == $default ){
+                $atts = 'selected';
+            }
+            echo "<option value='$category_id' $atts>$name</option>";
+        } 
+        ?>
+    </select>
+    <?php
+    }//end if categories
+}
+
+/**
+* displays sql query information including the computed parameters.
+* Silent unless DEBUG MODE is set to 1 in config.php
+* @param [statement handler] $sth -  any PDO statement handler that needs troubleshooting
+*/
+function debug_statement($sth){
+    if( DEBUG_MODE ){
+        echo '<pre>';
+        $info = debug_backtrace();
+        echo '<b>Debugger ran from ' . $info[0]['file'] . ' on line ' . $info[0]['line'] . '</b><br><br>';
+        $sth->debugDumpParams();
+        echo '</pre>';
+    }
+}
+/**
+ * Show an edit button when logged in as the author of the post shown
+ * @param  int  $post_id   the post id
+ * @param  int  $author_id the user_id of the author of the post
+ * @param  boolean|array $user      the logged in user array
+ * @return mixed             html
+ */
+function show_edit_button($post_id, $author_id, $user = false){
+    //if the user is logged in and is the user of this post
+    if($user AND $author_id == $user['user_id'] ){
+        echo "<a href='edit-post.php?post_id=$post_id' class='button button-outline'>Edit</a>";
+    }
+}
 //no close php

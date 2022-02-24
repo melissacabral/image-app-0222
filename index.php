@@ -29,8 +29,9 @@ require('includes/header.php');
 		?>
 		<div class="one-post">
 			<a href="single.php?post_id=<?php echo urlencode($post_id); ?>">
-				<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
+				<?php show_post_image($image, 'large', $title); ?>
 			</a>
+			<?php show_edit_button($post_id, $user_id, $logged_in_user); ?>
 			<span class="author">
 				<img src="<?php echo $profile_pic; ?>" width="40" height="40">
 				<?php echo $username; ?>

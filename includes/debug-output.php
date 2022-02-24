@@ -5,6 +5,9 @@
 
 	<h2>Variables</h2>
 	<pre><?php print_r( get_defined_vars() ); ?></pre>	
+
+	<h2>SERVER</h2>
+	<pre><?php print_r( $_SERVER ); ?></pre>	
 	
 </div>
 <?php } ?>

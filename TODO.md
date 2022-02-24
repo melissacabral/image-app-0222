@@ -1,8 +1,6 @@
 TODO
 ====
 
-* build and parse edit-post.php (step 2)
-* make the function to display uploaded images
 * remove the nav bar from the login and register form
 
 
@@ -29,3 +27,6 @@ DONE
 * build logout
 * fix the logout so the access_token is removed from the DB
 * build the new post page (step 1) and parse it
+* build and parse edit-post.php (step 2)
+* make the function to display uploaded images
+* make the edit button

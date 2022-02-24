@@ -44,7 +44,8 @@ require('includes/parse-comment.php');
 				extract($row);
 		?>
 		<div class="one-post">
-			<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
+			<?php show_post_image($image, 'large', $title); ?>
+
 			<span class="author">
 				<img src="<?php echo $profile_pic; ?>" width="40" height="40">
 				<?php echo $username; ?>

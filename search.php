@@ -75,7 +75,7 @@ $per_page = 1;
 				?>
 				<div class="item">
 					<a href="single.php?post_id=<?php echo $post_id; ?>">
-						<img src="<?php echo $image; ?>" width="250" height="250" alt="<?php echo $title; ?>">
+						<?php show_post_image($image, 'small', $title); ?>
 						<h3><?php echo $title; ?></h3>
 						<span class="date"><?php echo time_ago($date); ?></span>
 					</a>
