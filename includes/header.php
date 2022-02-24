@@ -28,6 +28,7 @@ $logged_in_user = check_login();
 			<?php //change the menu if logged in
 			if( $logged_in_user ){
 			?>
+				<li><a href="new-post.php">Add Post</a></li>
 				<li class="user">
 					<a href="#">
 						<img src="<?php echo $logged_in_user['profile_pic']; ?>" width="30" height="30">
