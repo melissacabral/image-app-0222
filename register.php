@@ -6,7 +6,7 @@ require_once('includes/functions.php');
 require('includes/parse-register.php');
 
 //doctype and visible header
-require('includes/header.php');
+require('includes/header-no-nav.php');
 ?>
 <main class="content">
 	<h1>Create an Account</h1>

@@ -1,7 +1,7 @@
 TODO
 ====
 
-* remove the nav bar from the login and register form
+
 
 
 DONE
@@ -30,3 +30,4 @@ DONE
 * build and parse edit-post.php (step 2)
 * make the function to display uploaded images
 * make the edit button
+* remove the nav bar from the login and register form
