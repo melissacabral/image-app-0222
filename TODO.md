@@ -31,3 +31,10 @@ DONE
 * make the function to display uploaded images
 * make the edit button
 * remove the nav bar from the login and register form
+* LIKE/UNLIKE
+	* Import the likes table into our DB
+	* build the like button interface  html + css
+	* Add the count_likes function 
+	* add the likes interface function 
+	* add the JS Fetch() call when the user clicks the heart button (footer.php) 
+	* add the fetch handler PHP file to update the DB behind the scenes 

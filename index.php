@@ -31,6 +31,20 @@ require('includes/header.php');
 			<a href="single.php?post_id=<?php echo urlencode($post_id); ?>">
 				<?php show_post_image($image, 'large', $title); ?>
 			</a>
+
+			<div class="likes">
+  
+			  <?php 
+			  if( $logged_in_user ){
+			  	$viewer_id = $logged_in_user['user_id'];
+			  }else{
+			  	$viewer_id = 0;
+			  }
+			  
+			  like_interface($post_id, $viewer_id); ?>
+			  
+			</div>
+
 			<?php show_edit_button($post_id, $user_id, $logged_in_user); ?>
 			<span class="author">
 				<img src="<?php echo $profile_pic; ?>" width="40" height="40">

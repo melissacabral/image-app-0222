@@ -364,4 +364,67 @@ function show_edit_button($post_id, $author_id, $user = false){
         echo "<a href='edit-post.php?post_id=$post_id' class='button button-outline'>Edit</a>";
     }
 }
+
+ 
+/**
+ * LIKE BUTTON ADDITIONS
+ * Count the likes on any post
+ */
+
+function count_likes( $post_id ){
+  global $DB;
+  $result = $DB->prepare( "SELECT COUNT(*) AS total_likes
+            FROM likes
+            WHERE post_id = ?" );
+  $result->execute( array($post_id) );
+  if( $result->rowCount() >= 1 ){
+    $row = $result->fetch();
+    $total = $row['total_likes'];
+
+    //display it with correct grammar (ternary operator example)
+    return $total == 1 ? '1 Like' : "$total Likes" ;
+
+  }
+}
+/**
+ * Interface for "like" button and count
+ * works on any post
+ */
+function like_interface( $post_id, $user_id = 0 ){
+  global $DB;
+  //is the viewer logged in?
+    if( $user_id ){
+    //does the viewer "like" this post?
+     $result = $DB->prepare( "SELECT * FROM likes
+              WHERE user_id = ?
+              AND post_id = ?
+              LIMIT 1" );
+      $result->execute(array($user_id, $post_id));
+   if( $result->rowCount() >= 1 ){
+      //they like it
+      $class = 'you-like';
+    }else{
+      //they don't like
+      $class = 'not-liked';
+    }
+  } //end if logged in
+  
+
+  ?>
+  <span class="like-interface">
+    <span class="<?php echo $class; ?>">
+      
+      <?php 
+      //logged in?
+      if( $user_id ){ ?>
+      <span class="heart-button" data-postid="<?php echo $post_id; ?>">❤</span>
+      <?php 
+      } //end if logged in
+      ?>
+
+      <?php echo count_likes( $post_id ); ?>
+    </span>
+  </span>
+  <?php
+}
 //no close php
